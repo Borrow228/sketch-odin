@@ -1,23 +1,40 @@
 const container = document.querySelector("#container");
 
-let height = 16;
-let width = 16;
-let squareWidth = 40;
-let squareHeight = 40;
-container.style.maxWidth = width * (squareWidth + 2) + "px";
+let gridHeight = 16;
+let gridWidth = 16;
+let squareWidth = 20;
+let squareHeight = 20;
 
+
+function createGrid(width, height) {
+    width = gridWidth;
+    height = gridHeight;
 for (i = 0; i < (height * width); i ++) {
     let square = document.createElement("div");
     square.setAttribute("class", "square");
     square.textContent = "";
-    square.style.width = squareWidth + "px";
-    square.style.height = squareHeight + "px";
+    square.style.width = 960 / (gridHeight) + "px";
+    square.style.height = 960 / (gridHeight) + "px";
     container.appendChild(square);
 
     square.addEventListener("mouseover", function () {
         square.style.backgroundColor = "white";
     })
 }
+}
 
+createGrid();
 
+let button = document.querySelector("#button");
+button.addEventListener("click", function() {
+    let enteredNumber = prompt("Enter the grid size: ");
+        while (enteredNumber > 100) {
+            enteredNumber = prompt("Not bigger, than 100, please...");
+        }
+    console.log(enteredNumber);
+    gridWidth = enteredNumber;
+    gridHeight = enteredNumber;
+    container.innerHTML = '';
+    createGrid(gridWidth, gridHeight);
+})
 
