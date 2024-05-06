@@ -1,11 +1,16 @@
 #container {
     display: flex;
     flex-wrap: wrap;
+    
     }
+
+#container:hover {
+    background-color: white;
+}
 
 .square {
     background-color: black;
-    width: 40px;
     height: 40px;
     border: 1px solid white;
 }
+
