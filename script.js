@@ -4,6 +4,7 @@ let gridHeight = 16;
 let gridWidth = 16;
 let squareWidth = 20;
 let squareHeight = 20;
+let opacity = 100;
 
 
 function createGrid(width, height) {
@@ -17,8 +18,16 @@ for (i = 0; i < (height * width); i ++) {
     square.style.height = 960 / (gridHeight) + "px";
     container.appendChild(square);
 
-    square.addEventListener("mouseover", function () {
-        square.style.backgroundColor = "white";
+    
+        square.addEventListener("mouseover", function () {
+        if (opacity > 0) {opacity -= 10;}
+        console.log(opacity);
+        function getColor() {
+            return Math.floor(Math.random() * 256);
+        }
+        let color = "rgb(" + getColor() + " " + getColor() + " " + getColor() + " / " + opacity + "%" + ")";
+        console.log(color);
+        square.style.backgroundColor = color;
     })
 }
 }
