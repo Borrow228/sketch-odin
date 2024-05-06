@@ -20,7 +20,7 @@ for (i = 0; i < (height * width); i ++) {
 
     
         square.addEventListener("mouseover", function () {
-        if (opacity > 0) {opacity -= 10;}
+        if (opacity > 0) {opacity -= 1;}
         console.log(opacity);
         function getColor() {
             return Math.floor(Math.random() * 256);
